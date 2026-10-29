@@ -8,14 +8,14 @@ This is the one file your instructor checks each week. Keep each entry short: so
 
 ---
 
-## Week [N] — [date]
+## Week [2] — [10/29/26]
 
-- **Done:** *(What each person finished, with the document or task IDs.)*
-- **Next:** *(What each person will do next week.)*
-- **Blockers:** *(Anything stopping progress, and who can help — or "None.")*
-- **Open questions:** *(Open items from the Spec's Open Questions, by ID — or "None.")*
-- **AI use:** *(How the team used AI this week, and who checked it — or "None.")*
-- **Change request:** *(Optional — see "Adapting the Process" in the README. What you want to change, why, and what it affects — or "None.")*
+- **Done:** *Created project repo and added professor and team members as collaborators. Established Slack as communication tool, member roles, and rough timeline for getting back on track with project schedule.*
+- **Next:** *Complete Business Case and Specification V1*
+- **Blockers:** *Team needs to agree on application idea to proceed.*
+- **Open questions:** *None*
+- **AI use:** *None*
+- **Change request:** *None*
 - **Instructor response:** *(Filled in by the instructor: Approved / Declined, date, and any note.)*
 
 ---

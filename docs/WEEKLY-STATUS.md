@@ -16,6 +16,7 @@ This is the one file your instructor checks each week. Keep each entry short: so
 - **Done:** 
     - *10/29: Created project repo and added professor and team members as collaborators. Established Slack as communication tool, member roles, and rough timeline for getting back on track with project schedule.*
     - *10/30: Application decision made. Mi: Completed Business Case.*
+    - *11/1: We are reviewing core features and establishing technical direction*
 - **Next:** *Complete Specification V1 and Style Guide*
 - **Blockers:** *None*
 - **Open questions:** *None*

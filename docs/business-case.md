@@ -1,6 +1,6 @@
 # [Product/Service Name] — Business Case
 
-> **When:** Week 1 · **Owner:** Product Owner · **Done when:** every item in the SVC Self-Check at the end is true.
+> **When:** Week 1 · **Owner:** Product Owner - Mi Meh · **Done when:** every item in the SVC Self-Check at the end is true.
 >
 > **Sponsor decision:** Go / No-go · **By:** ___ · **Date:** ___
 >
@@ -12,17 +12,17 @@ The Business Case answers one question: *should we do this at all?* Keep it to a
 
 ## 1. Problem
 
-**Who is affected?** *(A specific group of people, not "everyone.")*
+**Who is affected?** *People who has an upcoming trip, whether solo or with others such as their friends, family, or partner and are needing to plan out their trip.*
 
-**What's wrong today?** *(1–2 sentences about the situation — not the solution.)*
+**What's wrong today?** *Planning trip can be stressful as their are many things to consider, such as buying tickets, stay accommodations, itineraries, and making sure to be in budget. Trip planning documents can often be spread out across different app such as notes, spreadsheets, or group chats, which can make it hard to organize, especially if you are needing to communicate with multiple people about plans. Already existing travel applications may either cost extra or may have to many complex features that can frustrate trip planner out even more.*
 
-**How will we know it worked?** *(A measurable outcome, e.g. "70% of members use it within a month.")*
+**How will we know it worked?** *70% of users plan a trip to completion within the first month.*
 
 ---
 
 ## 2. Proposed Solution
 
-*One short paragraph in plain language. No tech stack, no screens.*
+*We want to create an app for someone who has an upcoming trip. The users will be able to create new trips, add destination, add the dates, and organize their itineraries. The itineraries will be able to be moved around on a day by day basis to accommodate plan changes. Must have features will include lists of upcoming trips, ability to create and naming new trips with a start and end date, adding destinations with their dates, and organizing itinerary on day to day basis. Other features that can be implemented later on is packing item list, collaboration, and budgetting.*
 
 ---
 
@@ -32,9 +32,9 @@ The Business Case answers one question: *should we do this at all?* Keep it to a
 
 | Option | Description | Pros | Cons |
 |--------|-------------|------|------|
-| Do nothing | | | |
-| Option A | | | |
-| Option B | | | |
+| Do nothing |Users keep planning their trips with multiple documents.  |No extra cost or need to download extra application|Unorganized with multiple documents involved|
+| Option A (Recommended): Simple Trip Planner|Users can create trips, add destinations and date, and organize itineraries. |Low risk, fast and easy to build and implement. |App has fewer features and may not stand out against other application. |
+| Option B: Fully Decked-Out Trip Planner|Users get all features in option A with the addition of budgeting, packing lists, and collaboration features. |It has more features | Longer time to build |
 
 ---
 
@@ -44,22 +44,22 @@ The Business Case answers one question: *should we do this at all?* Keep it to a
 
 | Question | Answer |
 |----------|--------|
-| **Will people actually use it?** | |
-| **Can we build it with what we have?** | |
-| **Can it be done in time to matter?** | |
-| **What does it cost?** One-time and per year — include ongoing costs such as hosting. | |
-| **What do we gain?** Say which benefits are measurable, and how much. Don't invent precise numbers. | |
+| **Will people actually use it?** |Most likely as it is more appealing and efficient to have one app to organize a trip than multiple documents. |
+| **Can we build it with what we have?** |Yes, it is buildable with the 3 person team, as the app includes simple main features and the team have previous experience. |
+| **Can it be done in time to matter?** |Yes, this app is buildable within the 8 week deadline.|
+| **What does it cost?** One-time and per year — include ongoing costs such as hosting. |At least 5 hours of work a week into bulding the app equaling up to 40 hours needed overall to build. Basic hosting cost $0 at this moment.|
+| **What do we gain?** Say which benefits are measurable, and how much. Don't invent precise numbers. |Users will save time on planning trip, streamline trip organization, and improve the overall quality and experience of planning a trip. |
 
 ---
 
 ## 5. Recommendation
 
-*One or two sentences: which option, what you're asking the sponsor to approve, and why now — what gets worse if you wait?*
+*To approve Option A: Simple Trip Planner. This will include building a trip planner application with a few main features within the 8 weeks, and run testing.*
 
 ---
 
 ## SVC Self-Check
 
-- [ ] **Simple** — fits on about one page; no tech stack or screen details.
-- [ ] **Valuable** — the problem names a specific group and a specific pain, not a solution; success is a measurable outcome, not a feature list.
-- [ ] **Complete** — "Do nothing" is compared; ongoing costs are included; the recommendation is one clear choice with a reason to act now; the sponsor has decided.
+- [x] **Simple** — fits on about one page; no tech stack or screen details.
+- [x] **Valuable** — the problem names a specific group and a specific pain, not a solution; success is a measurable outcome, not a feature list.
+- [x] **Complete** — "Do nothing" is compared; ongoing costs are included; the recommendation is one clear choice with a reason to act now; the sponsor has decided.

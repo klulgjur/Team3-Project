@@ -4,7 +4,7 @@
 >
 > **Version:** 1.0
 >
-> **Approved on:** 11/04/26 **by:** Product Owner ___ · Architecture Lead ___ · Delivery Lead KL
+> **Approved on:** 11/04/26 **by:** Product Owner MM · Architecture Lead ___ · Delivery Lead KL
 >
 > **Filled-in Example:** `docs/examples/specification-example.md`
 
@@ -20,6 +20,7 @@ The Spec is the source of truth for *what* you're building. Write it so a teamma
 |---|-----------|---------------|
 | 1 |First time users can finish planning a trip without needing help| How we will measure success for the project |
 | 2 |Actions and edits can be saved or undone| An accidental mistake or deletion should not cost users loss of planning information |
+| 3 |App will only store and collect necessary information needed to plan, organize, and manage trips| Protect users privacy.
 
 ---
 
@@ -124,4 +125,4 @@ The Spec is the source of truth for *what* you're building. Write it so a teamma
 
 - [x] **Simple** — each requirement is one sentence in one EARS pattern; no jargon a new teammate wouldn't know.
 - [x] **Valuable** — the Constitution has 2–3 principles that would actually stop a feature; the Evidence table has 3+ rows from real people outside the team, plus the prototype test; each P1 requirement cites evidence or a standard, or says ASSUMPTION; the riskiest assumption is named.
-- [] **Complete** — 3–5 scenarios, each with actor, trigger, steps, and both outcomes; P1 is 1–2 scenarios that make a complete journey; every requirement has a unique ID, a priority, and an acceptance test; no open question blocks a P1 requirement; the team has approved it.
+- [x] **Complete** — 3–5 scenarios, each with actor, trigger, steps, and both outcomes; P1 is 1–2 scenarios that make a complete journey; every requirement has a unique ID, a priority, and an acceptance test; no open question blocks a P1 requirement; the team has approved it.

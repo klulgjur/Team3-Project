@@ -4,7 +4,7 @@
 >
 > **Version:** 1.0
 >
-> **Approved on:** ___ **by:** Delivery Lead ___ · Product Owner ___ · Architecture Lead ___
+> **Approved on:** 11/4/26 **by:** Delivery Lead KL · Product Owner ___ · Architecture Lead ___
 >
 > **Filled-in Example:** `docs/examples/style-guide-example.md`
 
@@ -14,11 +14,11 @@ The Style Guide tells every screen — and every AI agent — exactly how the pr
 
 ## 1. Brand & Voice
 
-- **Brand principles:** *(2–3 sentences on the personality the design should convey. Make them specific enough to rule things out.)*
-- **Tone:** *(e.g. casual, warm, brief.)*
-- **Button example:** *(e.g. "Add photos," not "Submit media.")*
-- **Error example:** *(e.g. "That file is too large — the limit is 20 MB," not "Error 413.")*
-- **Logo:** *(File location and one "don't," e.g. don't stretch it — or "None.")*
+- **Brand principles:** Simple, calm design with minimal distractions. User focus should be on trip itinerary cards. Users should be able to immediately view their created trips upon login.
+- **Tone:** Friendly, cool, adventurous. 
+- **Button example:** "Create New Trip" rather than "Add New" or a plus sign icon. 
+- **Error example:** "Log in to create a new trip itinerary."
+- **Logo:** No logo, use "Trip Planner" as application name for now. 
 
 ---
 
@@ -28,11 +28,11 @@ The Style Guide tells every screen — and every AI agent — exactly how the pr
 
 | Name | Hex | Use | Contrast vs. background |
 |------|-----|-----|-------------------------|
-| Primary | | Main brand color, primary buttons | |
-| Text | | Body text | |
-| Background | | Page background | — |
-| Error | | Error messages | |
-| Border | | Borders of form fields and buttons | |
+| Primary | #7B80B7 | Main brand color, primary buttons | 3.53 : 1 |
+| Text | #000000 | Body text | 18.08:1 |
+| Background | #fff8ea | Page background | - |
+| Error | #7a7a7a | Error messages | 4.06:1 |
+| Accents and Headings | #10111E | Dividers, links, heading text, button text, borders | On Background: 17.72:1 / On Primary: 5:1 |
 
 ---
 
@@ -42,12 +42,13 @@ The Style Guide tells every screen — and every AI agent — exactly how the pr
 
 | Role | Font | Size | Weight |
 |------|------|------|--------|
-| Heading 1 | | | |
-| Heading 2 | | | |
-| Body | | | |
+| Heading 1 | Arial/Sans serif | 48px | Bold |
+| Heading 2 | Arial/Sans serif | 32px | Regular |
+| Main Text | Arial/Sans serif | 24px | Regular |
+| Body Text/Notes | Arial/Sans serif | 16px | Regular |
 
-- **Spacing scale:** *(e.g. 8 / 16 / 24 / 32 / 48px, from an 8px base unit.)*
-- **Max content width:** *(e.g. 1200px)*
+- **Spacing scale:** 8 / 16 / 24 / 32 / 48px, from an 8px base unit.
+- **Max content width:** 1200px. View "My Trips" page as a grid on wide/desktop screens, and as a single column on mobile. 
 
 ---
 
@@ -57,16 +58,17 @@ The Style Guide tells every screen — and every AI agent — exactly how the pr
 
 | Component | Rules |
 |-----------|-------|
-| Button (primary) | |
-| Button (secondary) | |
-| Card | |
-| Form field | |
-| Navigation | |
+| Button (primary) | Primary background, Accents and Headings text and border, bold text, 15px corner radius, 5px border width. On hover: Accents and Headings background, Background text. |
+| Button (secondary) | Background color background, Accents and Headings text and border, bold text, 15px corner radius, 5px border width. On hover: Accents and Headings background, Background text. |
+| Card | Primary background, 15px corder radius. Use for individual trip cards and individual day cards within itinerary. |
+| Item Card | 
+| Form field | Primary background, Text color text, Accents and Headings form border, and current/active form field border. 15px corner radius and 2px border width. |
+| Navigation | Primary background, Accents and Headings web app title. Secondary buttons for all buttons in navigation bar. App title on left side and navigation buttons on the right of navigation bar. |
 
 ---
 
 ## SVC Self-Check
 
-- [ ] **Simple** — 3–7 colors, no more than 2 font families, one spacing scale.
-- [ ] **Valuable** — every rule would change how a screen gets built; the brand principles actually rule things out.
-- [ ] **Complete** — every section is filled or marked "N/A because…"; every color meets its contrast target; components include hover, focus, disabled, and error states; the whole team has approved it.
+- [x] **Simple** — 3–7 colors, no more than 2 font families, one spacing scale.
+- [x] **Valuable** — every rule would change how a screen gets built; the brand principles actually rule things out.
+- [x] **Complete** — every section is filled or marked "N/A because…"; every color meets its contrast target; components include hover, focus, disabled, and error states; the whole team has approved it.

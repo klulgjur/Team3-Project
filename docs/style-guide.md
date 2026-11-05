@@ -60,8 +60,8 @@ The Style Guide tells every screen — and every AI agent — exactly how the pr
 |-----------|-------|
 | Button (primary) | Primary background, Accents and Headings text and border, bold text, 15px corner radius, 5px border width. On hover: Accents and Headings background, Background text. |
 | Button (secondary) | Background color background, Accents and Headings text and border, bold text, 15px corner radius, 5px border width. On hover: Accents and Headings background, Background text. |
-| Card | Primary background, 15px corder radius. Use for individual trip cards and individual day cards within itinerary. |
-| Item Card | 
+| Card | Background color background, Accents and Headings border and heading color. 15px corner radius, 5px border width. Use for individual day cards within itinerary. |
+| Trip Card | Primary background, 15px corner radius. Use for trip cards on "My Trips" page. |
 | Form field | Primary background, Text color text, Accents and Headings form border, and current/active form field border. 15px corner radius and 2px border width. |
 | Navigation | Primary background, Accents and Headings web app title. Secondary buttons for all buttons in navigation bar. App title on left side and navigation buttons on the right of navigation bar. |
 

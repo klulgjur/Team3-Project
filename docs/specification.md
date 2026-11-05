@@ -69,14 +69,13 @@ The Spec is the source of truth for *what* you're building. Write it so a teamma
 - Success outcome: Users open to a saved trip they previously created, with all the correct details showing.
 - Failure outcome: The trip the User had previously created was not saved correctly, therefore no trip was found.
 
-**S3: Rearranging or editing the trip ** — Priority: P2 
+**S3: Rearranging or editing the trip** — Priority: P2 
 - Actor: User
 - Trigger: There is a change in plans.
 - Steps: Open the trip -> Make the edits needed to the trip, such as changing the dates, or destinations -> Rearrange the activity from one day to another, remove the activity, or add a new activity.
 - Success outcome: The trip reflects the edits made to the plan after saving.
 - Failure outcome: The edits get deleted before it was able to save.
 
-*(Repeat for each scenario: S2, S3…)*
 
 ---
 
@@ -103,8 +102,8 @@ The Spec is the source of truth for *what* you're building. Write it so a teamma
 | R6 |If trip fails to save, the system will pop up an error, keep the entered data on screen and let the user retry to save. |P1 |User trip failed to save -> Error screen pop up, data is still there, User is able to try to save it again |ASSUMPTION |
 | R7 |When a first time user is trying to create a trip to completion, the system should let them finish without trying to help  |P1 |Test prototype with 4+ users -> 70% plan a trip to completion without assistance |E3 |
 | R8 |The system should display the home screen and the trip details in under 10 seconds. |P1 |Open app and Trip details -> Home screen loaded in under 10 seconds |ASSUMPTION |
-| R9 |When the user make edits to the trip details, rearrange activities, or add new activities, the system shall save those changes. |P2 | User edits the dates from "January 15-21" to "January 15-22" -> New date is saved and shown when reopening the trip details | |E1|
-| R10 |When a user leaves the screen with unsaved edits, the system will prompt user to either save or discard changes. |P2 |Edit the trip activities, click back button -> System show "Save Changes?" with yes or no buttons. |Constitution 2|
+| R9 |When the user make edits to the trip details, rearrange activities, or add new activities, the system shall save those changes. |P2 | User edits the dates from "January 15-21" to "January 15-22" -> New date is saved and shown when reopening the trip details |E1|
+| R10 |When a user leaves the screen with unsaved edits, the system will prompt user to either save or discard changes. |P2 |Edit the trip activities, click back button -> System show "Save Changes?" with yes or no buttons. |Constitution #2|
 | R11 |When user deletes or change an item, the system shall let the user Undo action for at least 10 seconds. |P2 |Delete an activity -> Undo button shown for 10 seconds -> Activity restored |Constitution #2 |
 
 

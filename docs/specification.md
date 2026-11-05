@@ -4,7 +4,7 @@
 >
 > **Version:** 1.0
 >
-> **Approved on:** ___ **by:** Product Owner ___ · Architecture Lead ___ · Delivery Lead ___
+> **Approved on:** 11/04/26 **by:** Product Owner ___ · Architecture Lead ___ · Delivery Lead KL
 >
 > **Filled-in Example:** `docs/examples/specification-example.md`
 

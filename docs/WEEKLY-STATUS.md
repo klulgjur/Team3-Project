@@ -22,7 +22,7 @@ This is the one file your instructor checks each week. Keep each entry short: so
 - **Open questions:** *None*
 - **AI use:** *None*
 - **Change request:** *None*
-- **Instructor response:** *(Filled in by the instructor: Approved / Declined, date, and any note.)*
+- **Instructor response:** *jLyst: Approved*
 
 ---
 

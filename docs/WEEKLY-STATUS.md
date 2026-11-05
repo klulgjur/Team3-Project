@@ -7,7 +7,18 @@
 This is the one file your instructor checks each week. Keep each entry short: someone should be able to read it in a minute.
 
 ---
+## Week 2 — 11/04/26
 
+- **Done:** 
+    - *Marla: Created architecture guiding principles*
+    - *Mi: Completed Specification.*
+    - *Kristiana: Completed Style Guide and prototype*
+- **Next:** *Perform prototype test and refine specification based on results, Plan and Data & API first half*
+- **Blockers:** *None*
+- **Open questions:** *None*
+- **AI use:** *None*
+- **Change request:** *None*
+- **Instructor response:** **
 
 ---
 

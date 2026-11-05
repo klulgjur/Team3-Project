@@ -4,7 +4,7 @@
 >
 > **Version:** 1.0
 >
-> **Approved on:** 11/4/26 **by:** Delivery Lead KL · Product Owner MM · Architecture Lead ___
+> **Approved on:** 11/4/26 **by:** Delivery Lead KL · Product Owner MiM · Architecture Lead ___
 >
 > **Filled-in Example:** `docs/examples/style-guide-example.md`
 

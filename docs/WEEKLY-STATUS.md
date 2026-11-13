@@ -7,6 +7,21 @@
 This is the one file your instructor checks each week. Keep each entry short: someone should be able to read it in a minute.
 
 ---
+
+## Week 3 — 11/12/26
+
+- **Done:**
+    - *Kristiana: Filled out plan, will refine and edit before next week*
+    - *Mi: Filled out data-api-design*
+- **Next:** *Team needs to review and approve both plan and data-api-design*
+- **Blockers:** *Waiting to hear from Architecture Lead. Product Owner and Delivery Lead have taken over Architecture Lead responsibilities for now.*
+- **Open questions:** *None*
+- **AI use:** *Ensuring requirement IDs in spec match appropriately in plan*
+- **Change request:** *None*
+- **Instructor response:** *jLyst, Approved*
+
+---
+
 ## Week 2 — 11/04/26
 
 - **Done:** 

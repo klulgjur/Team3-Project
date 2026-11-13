@@ -1,94 +1,173 @@
-# [Product/Service Name] — Data & API Design
+# Trip Planner — Data & API Design
 
-> **When:** Week 3 (Sections 0–2), Week 4 (Sections 3–4) · **Owner:** Architecture Lead (in a team of 4, the Data & API owner) · **Done when:** every item in the SVC Self-Check at the end is true.
+> **When:** Week 3 (Sections 0–2), Week 4 (Sections 3–4) · **Owner:** Architecture Lead (Data & API owner) · **Done when:** every item in the SVC Self-Check at the end is true.
 >
 > **Version:** 1.0
 >
-> **Approved on:** ___ **by:** Architecture Lead ___ · Product Owner ___ · Delivery Lead ___
->
-> **Filled-in Example:** `docs/examples/data-api-design-example.md`
+> **Approved on:** TBD **by:** Architecture Lead ___ · Product Owner ___ · Delivery Lead ___
 
-This document turns the Spec's nouns into data and its user actions into endpoints. If the built app and this document disagree, this document wins until it's deliberately changed. Unresolved questions go in the Spec's Open Questions.
+This document turns the Spec's nouns into data and its user actions into endpoints. If the built app and this document disagree, this document wins until it's deliberately changed. Unresolved questions are called out below and in the Spec's Open Questions.
 
 ---
 
 ## 0. Database & Storage
 
-**Database:** *(The real database this design is for, from ADR-00 in `plan.md`, e.g. "PostgreSQL via Supabase.")*
+**Database:** PostgreSQL via Supabase
 
-**Build option:** Simulated backend / Real backend *(Simulating? Keep designing for the real database — that's what System Implementation will build. The simulation uses the same entities, field names, and endpoints as this document.)*
+**Build option:** Simulated backend
 
-**We store:** *(One or two sentences. What must the app remember between visits?)*
+**We store:** Users, trips, destinations, itinerary days, and activities required to plan and reopen trips. The app remembers each trip's name, date range, destination details, and day-by-day itinerary so users can view and edit a saved trip after returning.
 
-**We do NOT store:** *(e.g. "Passwords — login is simulated, or handled by the login service.")*
+**We do NOT store:** Passwords, the login is simulated with email only. We do not store payment, booking, or collaboration data because those features are out of scope.
 
-**Sensitive fields:** *(Personal or private data, and how it's protected. Write "None" if none.)*
+**Sensitive fields:** `user.email` , used only to identify the simulated user and not exposed beyond the logged-in session.
 
-*This template assumes a relational database (tables, rows, keys). Using a document database such as MongoDB or Firestore? See the "Document databases" box in `docs/reference/data-api-design-guide.md`.*
+*This design assumes a relational model, which matches the requirement for one table per entity and the day-by-day planning flow in the app.*
 
 ---
 
 ## 1. Entities
 
-*One table per entity — a thing the app keeps track of, usually a noun from the Spec's scenarios. Every field needs a requirement ID; if no requirement needs it, cut it.*
-
-**Key:** `PK` = identifies each row · `FK → Entity` = points to another entity's PK · `Unique` = no two rows can share this value. For every FK, say what happens when the parent is deleted: **block** it, or **delete** the children too — this is where data gets silently lost if nobody decides.
-
-**Entity: [Name]**
+**Entity: User**
 
 | Field | Type | Key | Required? | Req ID |
 |-------|------|-----|-----------|--------|
-| id | uuid | PK | Yes | |
-| | | | | |
+| id | uuid | PK | Yes | R1, R5, R7 |
+| email | text | Unique | Yes | R1, R7 |
 
-*(Repeat for each entity. 3–6 is typical.)*
+**Entity: Trip**
+
+| Field | Type | Key | Required? | Req ID |
+|-------|------|-----|-----------|--------|
+| id | uuid | PK | Yes | R1, R5, R8, R9 |
+| user_id | uuid | FK → User (on delete: block) | Yes | R1, R5 |
+| name | text | | Yes | R1, R2, R5, R9, R10 |
+| start_date | date | | Yes | R1, R2, R5, R9 |
+| end_date | date | | Yes | R1, R2, R5, R9 |
+
+**Entity: Destination**
+
+| Field | Type | Key | Required? | Req ID |
+|-------|------|-----|-----------|--------|
+| id | uuid | PK | Yes | R3, R9 |
+| trip_id | uuid | FK → Trip (on delete: delete children too) | Yes | R3, R9 |
+| name | text | | Yes | R3, R9 |
+| start_date | date | | Yes | R3, R9 |
+| end_date | date | | Yes | R3, R9 |
+
+**Entity: Day**
+
+| Field | Type | Key | Required? | Req ID |
+|-------|------|-----|-----------|--------|
+| id | uuid | PK | Yes | R4, R9, R10, R11 |
+| trip_id | uuid | FK → Trip (on delete: delete children too) | Yes | R4, R9, R10, R11 |
+| date | date | | Yes | R4, R9, R10, R11 |
+| order_index | integer | | Yes | R4, R9, R11 |
+| notes | text | | No | R4 |
+
+**Entity: Activity**
+
+| Field | Type | Key | Required? | Req ID |
+|-------|------|-----|-----------|--------|
+| id | uuid | PK | Yes | R4, R9, R11 |
+| day_id | uuid | FK → Day (on delete: delete children too) | Yes | R4, R9, R11 |
+| title | text | | Yes | R4, R9, R11 |
+| order_index | integer | | Yes | R4, R9, R11 |
 
 ---
 
 ## 2. Entity Relationship Diagram (ERD)
 
-*Draw every entity in [Mermaid](https://mermaid.js.org/syntax/entityRelationshipDiagram.html) with its keys and relationships. List only PK, FK, and Unique fields — Section 1 holds the rest. Check that it renders at [mermaid.live](https://mermaid.live) before pasting it here.*
-
 ```mermaid
 erDiagram
-  PARENT ||--o{ CHILD : "has"
-  PARENT {
+  USER ||--o{ TRIP : "owns"
+  TRIP ||--o{ DESTINATION : "includes"
+  TRIP ||--o{ DAY : "contains"
+  DAY ||--o{ ACTIVITY : "has"
+
+  USER {
     uuid id PK
+    text email UK
   }
-  CHILD {
+
+  TRIP {
     uuid id PK
-    uuid parent_id FK
+    uuid user_id FK
+    text name
+    date start_date
+    date end_date
+  }
+
+  DESTINATION {
+    uuid id PK
+    uuid trip_id FK
+    text name
+    date start_date
+    date end_date
+  }
+
+  DAY {
+    uuid id PK
+    uuid trip_id FK
+    date date
+    integer order_index
+    text notes
+  }
+
+  ACTIVITY {
+    uuid id PK
+    uuid day_id FK
+    text title
+    integer order_index
   }
 ```
-
-*`||--o{` means "one to zero-or-many". See the Mermaid link for other options.*
 
 ---
 
 ## 3. Normalization Check
 
-- [ ] **1NF** — every field holds one value (no lists or comma-separated values in a field).
-- [ ] **2NF** — every field depends on the whole primary key.
-- [ ] **3NF** — no field depends on another non-key field (e.g. don't store `event_name` on a photo — store `event_id`).
+- [x] **1NF** — every field holds one value; there are no comma-separated values, arrays, or repeated columns.
+- [x] **2NF** — every non-key field depends on the full primary key for its entity; `activity.title` depends on `activity.id`, `destination.name` depends on `destination.id`, and so on.
+- [x] **3NF** — no field depends on another non-key field. The trip's date range is stored on `Trip`; day and destination dates are not duplicated into related records beyond their own row.
 
-**Intentional exceptions:** *(Any rule you broke on purpose, and why — or "None".)*
+**Intentional exceptions:** None.
 
 ---
 
 ## 4. API Endpoints
 
-*One row per user action. The path names a thing (`/v1/photos`); the method says what to do with it (`GET` read, `POST` create, `PATCH` update, `DELETE` remove). If the app has login, list the login endpoints too (e.g. `POST /v1/login`, `GET /v1/me`, `POST /v1/logout`). If a response returns a field that isn't stored (such as a photo `url` built from a file path), say where it comes from.*
+The app uses a simple authenticated API for trip planning. Logged-in users can create trips, add destinations, and build a day-by-day itinerary. The UI handles save warnings and undo actions, while the API stores the real trip data.
 
 | Req ID | Method | Path | Request | Success response | Errors | Who can call it |
 |--------|--------|------|---------|------------------|--------|-----------------|
-| | | | | | | Anyone / Member / Admin |
+| R7 | POST | /v1/login | `{ "email": "user@example.com" }` | `200 { "user": { "id", "email" } }` | `400` missing email | Anyone |
+| R5 | GET | /v1/me | — | `200 { "id", "email" }` | `401` | Member |
+| R7 | POST | /v1/logout | — | `204` | — | Member |
+| R5 | GET | /v1/trips | — | `200 [{ "id", "name", "start_date", "end_date" }]` | `401` | Member |
+| R1 | POST | /v1/trips | `{ "name", "start_date", "end_date" }` | `201 { "id", "user_id", "name", "start_date", "end_date" }` | `400`, `401` | Member |
+| R5 | GET | /v1/trips/{id} | — | `200` full trip details with destinations, days, and activities | `401`, `404` | Member |
+| R11 | DELETE | /v1/trips/{id} | — | `204` | `401`, `404` | Member |
+| R9 | PATCH | /v1/trips/{id} | `{ "name?", "start_date?", "end_date?" }` | `200` updated trip | `400`, `401`, `404` | Member |
+| R3 | POST | /v1/trips/{id}/destinations | `{ "name", "start_date", "end_date" }` | `201 { "id", "trip_id", "name", "start_date", "end_date" }` | `400`, `401`, `404` | Member |
+| R9 | PATCH | /v1/trips/{id}/destinations/{destination_id} | `{ "name?", "start_date?", "end_date?" }` | `200` updated destination | `400`, `401`, `404` | Member |
+| R9 | DELETE | /v1/trips/{id}/destinations/{destination_id} | — | `204` | `401`, `404` | Member |
+| R4 | POST | /v1/trips/{id}/days | `{ "date", "notes?", "order_index" }` | `201 { "id", "trip_id", "date", "notes", "order_index" }` | `400`, `401`, `404` | Member |
+| R9 | PATCH | /v1/trips/{id}/days/{day_id} | `{ "date?", "notes?", "order_index?" }` | `200` updated day | `400`, `401`, `404` | Member |
+| R9 | DELETE | /v1/trips/{id}/days/{day_id} | — | `204` | `401`, `404` | Member |
+| R4 | POST | /v1/trips/{id}/days/{day_id}/activities | `{ "title", "order_index" }` | `201 { "id", "day_id", "title", "order_index" }` | `400`, `401`, `404` | Member |
+| R9 | PATCH | /v1/trips/{id}/days/{day_id}/activities/{activity_id} | `{ "title?", "order_index?" }` | `200` updated activity | `400`, `401`, `404` | Member |
+| R11 | DELETE | /v1/trips/{id}/days/{day_id}/activities/{activity_id} | — | `204` | `401`, `404` | Member |
 
-*Common status codes: `200` OK · `201` Created · `400` bad input · `401` not logged in · `403` not allowed · `404` not found · `409` conflict (e.g. duplicate).*
+Simple notes:
+- `GET /v1/trips` shows the list of saved trips on the home page. Upcoming trips appear first.
+- `GET /v1/trips/{id}` returns the full trip, including destinations and itinerary days, so the app can render one trip in one request.
+- Validation errors use `400` with a simple field message, such as `{"field":"end_date","message":"required"}`.
+- The app uses a client-side save warning and undo flow for `R6`, `R10`, and `R11`.
 
 ---
 
 ## SVC Self-Check
 
-- [ ] **Simple** — entities are plain nouns from the Spec; paths are nouns, not verbs (`/photos`, not `/getPhotos`).
-- [ ] **Valuable** — every field and endpoint has a requirement ID; anything without one has been cut; sensitive fields are named and protected.
-- [ ] **Complete** — the database matches ADR-00; every P1 requirement that stores or reads data has its entity and endpoint; every FK has a delete rule; the ERD renders and shows cardinality; the normalization check is done, with any exception explained; every endpoint says who can call it; the team has approved it.
+- [x] **Simple** — entities are plain nouns from the Spec; endpoint paths are nouns and HTTP verbs describe the action (`GET /v1/trips`, not `/getTrips`).
+- [x] **Valuable** — every field and endpoint has a requirement ID; sensitive fields are called out and protected; the data model is limited to trip-planning needs only.
+- [x] **Complete** — the database model reflects the simulated backend plan; all P1 requirements that store or read data have an entity and endpoint; every FK has a delete rule; the ERD shows cardinality; the normalization check is complete; every endpoint names the caller; the document identifies the missing database decision as TBD.

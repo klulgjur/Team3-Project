@@ -2,7 +2,7 @@
 
 > **When:** Week 1 · **Owner:** Product Owner - Mi Meh · **Done when:** every item in the SVC Self-Check at the end is true.
 >
-> **Sponsor decision:** Go / No-go · **By:** ___ · **Date:** ___
+> **Sponsor decision:** Go · **By:** Jim Lyst · **Date:** 10/30/2026
 >
 > **Filled-in Example:** `docs/examples/business-case-example.md`
 

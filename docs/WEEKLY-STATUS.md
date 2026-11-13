@@ -16,7 +16,7 @@ This is the one file your instructor checks each week. Keep each entry short: so
 - **Next:** *Team needs to review and approve both plan and data-api-design*
 - **Blockers:** *Waiting to hear from Architecture Lead. Product Owner and Delivery Lead have taken over Architecture Lead responsibilities for now.*
 - **Open questions:** *None*
-- **AI use:** *Ensuring requirement IDs in spec match appropriately in plan*
+- **AI use:** *Ensuring requirement IDs in spec match appropriately in plan. Ensure the data-api-design aligns with project details.*
 - **Change request:** *None*
 - **Instructor response:** *jLyst, Approved*
 

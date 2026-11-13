@@ -4,7 +4,7 @@
 >
 > **Version:** 1.0
 >
-> **Approved on:** TBD **by:** Architecture Lead ___ · Product Owner ___ · Delivery Lead ___
+> **Approved on:** 11/12/2026 **by:** Architecture Lead ___ · Product Owner ___ · Delivery Lead MM
 
 This document turns the Spec's nouns into data and its user actions into endpoints. If the built app and this document disagree, this document wins until it's deliberately changed. Unresolved questions are called out below and in the Spec's Open Questions.
 

@@ -7,6 +7,18 @@
 This is the one file your instructor checks each week. Keep each entry short: someone should be able to read it in a minute.
 
 ---
+## Week 5 — 11/16/26
+
+- **Done:**
+  - Marla: Completed the Week 5 Tasks & Cross-Check draft, including development tasks, priorities, dependencies, and acceptance criteria.
+  - Marla: Cross-checked the P1 requirements against the Specification, Plan, and Data & API Design.
+  - Marla: Identified inconsistencies between the project documents for team review.
+- **Next:** Team to review the task list, address any gaps, and approve the document before the Week 6 build.
+- **Blockers:** Pending team review and approval.
+- **Open questions:** Confirm the database approach, itinerary layout, and required-field validation.
+- **AI use:** Used AI to help organize the development tasks and compare requirements across project documents. 
+- **Change request:** None.
+- **Instructor response:** Pending.
 
 ## Week 3 — 11/12/26
 

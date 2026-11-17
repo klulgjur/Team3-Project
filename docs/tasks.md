@@ -1,63 +1,80 @@
-# [Product/Service Name] — Tasks
+# Trip Planner — Tasks
 
-> **When:** Week 5, then updated through Weeks 6–8 · **Owner:** Delivery Lead · **Done when:** every item in the SVC Self-Check at the end is true.
+> **When:** Week 5, with updates in Weeks 6–8 · **Owner:** Delivery Lead
 >
-> **Approved on:** ___ **by:** Delivery Lead ___ · Architecture Lead ___ · Product Owner ___
->
-> **Filled-in Example:** `docs/examples/tasks-example.md`
+> **Approved on:** Pending team review · **by:** Delivery Lead ___ · Architecture Lead ___ · Product Owner ___
 
-Tasks break the Plan into small steps you can build and check one at a time.
-
----
+This task list follows the Trip Planner specification, build plan, and Data & API Design. Each task includes a requirement reference and a clear way to verify the result. The team will review the draft before the Week 6 build.
 
 ## 1. Task List
 
-*One row per task, P1 first, in the Plan's build order. A good task starts with a verb, can be finished in under a day, and has a one-sentence "Done when" check that says where to look (a file, the browser console, or a screen). When a task completes a requirement, its Done when is that requirement's acceptance test; groundwork tasks get their own concrete check. T0 is filled in, because every build starts by scaffolding the app.*
-
 | ID | Task | Priority | Traces to (R# / ADR) | Depends on | Done when | Status |
-|----|------|----------|----------------------|------------|-----------|--------|
-| T0 | Scaffold the app from the skill named in ADR-00 | P1 | ADR-00 | — | The template's sample pages open in the browser | Not started |
-| T1 | | P1 | | T0 | | Not started |
-| T2 | | | | | | |
+| --- | --- | --- | --- | --- | --- | --- |
+| T0 | Set up the Vue app using the collection-template starter | P1 | ADR-00 | — | The starter pages open in a browser without errors in the console. | Not started |
+| T1 | Prepare simulated data for users, trips, destinations, days, and activities | P1 | ADR-00, R1, R3, R4, R5 | T0 | `data.js` can save and load a sample trip with its destinations and activities. | Not started |
+| T2 | Create the welcome page and simulated email login | P1 | ADR-01, R5, R7 | T0, T1 | Users can open `/welcome`, enter an email on `/welcome/login`, and reach their trips without a password. | Not started |
+| T3 | Show saved trips on the My Trips page | P1 | R5, R8, ADR-02 | T1, T2 | `/mytrips` shows saved trips, with the nearest upcoming trip first. | Not started |
+| T4 | Build the new-trip form | P1 | R1 | T1, T3 | A trip named “NYC 2027” with dates January 15–21, 2027 can be saved and appears on My Trips. | Not started |
+| T5 | Validate required trip details before saving | P1 | R2 | T4 | A trip without an end date does not save, and the missing field is highlighted. | Not started |
+| T6 | Add destinations with start and end dates | P1 | R3 | T4, T5 | Manhattan (January 15–17) and Buffalo (January 18–21) both appear on the saved trip. | Not started |
+| T7 | Create the daily itinerary view | P1 | R4, ADR-03 | T1, T6 | `/mytrips/:id` shows the days of a trip in separate cards, once the team confirms the layout. | Not started |
+| T8 | Add activities to the selected itinerary day | P1 | R4 | T7 | “Empire State Building Tour” added to January 16 appears under January 16 after saving. | Not started |
+| T9 | Load saved trip details when users return | P1 | R5 | T3, T6, T8 | Reopening a trip shows its saved name, dates, destinations, days, and activities. | Not started |
+| T10 | Handle save errors without losing entered information | P1 | R6 | T4, T8 | A simulated save error keeps the entered information on screen and allows the user to try again. | Not started |
+| T11 | Conduct first-time user testing | P1 | R7 | T9, T10 | At least four people test the app; at least three of four complete a trip without assistance, and the results are recorded. | Not started |
+| T12 | Verify page loading performance | P1 | R8 | T3, T9 | Browser tests show the My Trips and trip-details pages each load in under 10 seconds. | Not started |
+| T13 | Support edits to trips and activities | P2 | R9 | T9 | Changing a trip's end date from January 21 to January 22 is still saved after reopening the trip. | Not started |
+| T14 | Warn users before leaving with unsaved changes | P2 | R10 | T13 | Leaving a page after making changes asks whether to save or discard them. | Not started |
+| T15 | Provide an Undo option for deleted activities | P2 | R11 | T13 | After deleting an activity, Undo stays available for at least 10 seconds and restores the activity when clicked. | Not started |
 
-*Status: Not started · In progress · Done · Blocked (Q#) — when a task is blocked, add the question to the Spec's Open Questions and put its ID here.*
-
----
+**Status note:** Statuses are provisional until the team confirms development progress. Update any task already in progress or completed before approval.
 
 ## 2. Cross-Check (Week 5)
 
-*Before the Week 6 build, follow every P1 requirement through the documents. An empty cell is a gap — fix the document, not this table.*
+The table traces each P1 requirement from the Specification to the Data & API Design, the Plan, and the proposed development tasks.
 
 | Req ID | Data & API (entity / endpoint) | Plan (ADR / screen #) | Task(s) |
-|--------|--------------------------------|-----------------------|---------|
-| R1 | | | |
+| --- | --- | --- | --- |
+| R1 | Trip; `POST /v1/trips` | Screens 1, 5; ADR-00 | T1, T4 |
+| R2 | Trip required fields; validation error (400) | Screen 5; screen 9 also handles errors | T5 |
+| R3 | Destination; `POST /v1/trips/{id}/destinations` | Screens 1, 5, 6, 7 | T1, T6 |
+| R4 | Day and Activity; endpoints for adding days and activities | Screens 1, 6; ADR-03; screen 7 needs R4 listed | T1, T7, T8 |
+| R5 | User and Trip; `GET /v1/me`, `/v1/trips`, `/v1/trips/{id}` | Screens 1–4, 6; ADR-01, ADR-02 | T1, T2, T3, T9 |
+| R6 | Save-error message and retry handled in the app | Screen 5; screen 9 is currently P2 | T10 |
+| R7 | Simulated login; `POST /v1/login`; usability test | Screen 3; ADR-01 | T2, T11 |
+| R8 | Trip-list and trip-detail data; browser loading test | Screens 4, 6 | T3, T12 |
 
-**Result:** *(e.g. "All P1 requirements traced; no task without a requirement or ADR.")*
+**Result:** All eight P1 requirements have proposed task coverage. The document references are identified, but the issues below must be reviewed before the cross-check can be considered complete.
 
----
+### Cross-check findings requiring team review
+
+1. **Database choice:** The Plan leaves the database blank in ADR-00. The Data & API Design says PostgreSQL through Supabase, but also says the backend is simulated. The team should confirm whether Supabase is only the intended future database or part of the Week 6 implementation.
+2. **Activity date in R4:** The Specification says an activity added to January 16 appears on January 17. The Spec owner should confirm the intended date and update the acceptance test.
+3. **Itinerary layout:** ADR-03 says to use daily cards, while the screen description mentions a vertical timeline. The Plan should use consistent terminology for the selected layout.
+4. **Save errors:** R6 is P1, but the separate Error Screen is listed as P2 in the Plan. Save-failure handling must remain in the P1 build even if a separate error screen is deferred.
+5. **Activity screen:** Screen 7 is for adding destinations *and* activities, but only lists R3. It should also reference R4 if it handles activities.
+6. **Login requirement:** The Plan includes simulated email login, but the Specification doesn't list login as its own requirement. The team should clarify whether login is a supporting design decision or needs an explicit requirement.
+7. **Approvals:** The Architecture Lead approval is still blank in the Plan and Data & API Design. The Tasks document also needs team approval.
+8. **Usability testing:** R7 needs results from at least four testers. The task should remain open until the results are recorded.
+9. **Required destination details:** R2 lists destinations as required for saving, while R1 allows users to create a trip before adding destinations. The team should clarify at which stage destination details become mandatory.
+10. **Editing and Undo:** The P2 tasks must retain the specified unsaved-change warning and 10-second Undo behavior.
 
 ## 3. Gap Log (Weeks 6–7)
 
-*During the Week 6 AI build, log every place the agent guessed, got stuck, or misread a document. In Week 7, each document's owner fixes their gaps; then mark whether the re-run confirmed the fix.*
+Complete this section during Weeks 6–7 when build or testing results identify unclear or missing instructions.
 
 | What the agent got wrong or guessed | Which document & section caused it | Fix applied | Fixed in re-run? |
-|-------------------------------------|------------------------------------|-------------|------------------|
-| | | | |
-
----
+| --- | --- | --- | --- |
+| *To be filled in during Week 6* | — | — | — |
 
 ## 4. Build Notes (Week 8)
 
-*What the final test build simulated or left out. Together with the documents, this is the handoff to System Implementation.*
-
-- **Live URL:** *(The app's GitHub Pages address.)*
-- **Simulated:** *(Each simulated requirement ID and how it's simulated, e.g. "R1: a 'log in as…' picker instead of real login.")*
-- **Not built:** *(Each task you didn't build, with its priority — P2 or P3 only — or "None.")*
-
----
+- **Live URL:** Pending publication.
+- **Simulated:** Pending build verification; the current design specifies simulated login and backend behavior.
+- **Not built:** Pending final build review.
 
 ## SVC Self-Check
 
-- [ ] **Simple** — each task is one action starting with a verb, small enough to finish in under a day, with a one-sentence Done when check.
-- [ ] **Valuable** — every task traces to a requirement or ADR; nothing is built "just because."
-- [ ] **Complete** — every P1 requirement has at least one task; P1 tasks come first in the Plan's build order; the cross-check has no empty cells; the team approved it before the Week 6 build; every gap has a fix or a reason it wasn't fixed; the Build Notes are filled in by the end of Week 8.
+- **Simple:** Each task begins with an action and includes a verifiable completion check. The team should confirm that every task is small enough to finish within one day.
+- **Valuable:** Every task links to a requirement or architecture decision.
+- **Complete:** All eight P1 requirements have proposed tasks. The cross-check findings and approval remain open.

@@ -18,7 +18,7 @@ This is the one file your instructor checks each week. Keep each entry short: so
 - **Open questions:** Confirm the database approach, itinerary layout, and required-field validation.
 - **AI use:** Used AI to help organize the development tasks and compare requirements across project documents. 
 - **Change request:** None.
-- **Instructor response:** Pending.
+- **Instructor response:** *jLyst: Approved*
 
 ## Week 3 — 11/12/26
 

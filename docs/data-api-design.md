@@ -140,7 +140,8 @@ The app uses a simple authenticated API for trip planning. Logged-in users can c
 
 | Req ID | Method | Path | Request | Success response | Errors | Who can call it |
 |--------|--------|------|---------|------------------|--------|-----------------|
-| R7 | POST | /v1/login | `{ "email": "user@example.com" }` | `200 { "user": { "id", "email" } }` | `400` missing email | Anyone |
+| R12 | POST | /v1/users | `{ "email": "user@example.com" }` | `201 { "user": { "id", "email" } }` Account created and user automatically logged in | `400`, `409` duplicate email | Anyone |
+| R7 | POST | /v1/login | `{ "email": "user@example.com" }` | `200 { "user": { "id", "email" } }` | `400` missing email, `404` email not recognized | Anyone |
 | R5 | GET | /v1/me | — | `200 { "id", "email" }` | `401` | Member |
 | R7 | POST | /v1/logout | — | `204` | — | Member |
 | R5 | GET | /v1/trips | — | `200 [{ "id", "name", "start_date", "end_date" }]` | `401` | Member |

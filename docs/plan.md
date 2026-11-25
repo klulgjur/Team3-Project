@@ -28,6 +28,7 @@ A simple web app for users to organize and plan trips. Users log in to view thei
 | ADR-01 | Use a simulated login with email. | R5, R7 | Full login with email and password authentication | Application doesn't store sensitive information and omitting full login allows focus to remain on app functionality. |
 | ADR-02 | Display user trips in order with soonest trips at the top and furthest trips at the bottom. Past trips appear in a separate section at the bottom, underneath all future trips. Include option to sort/filter trips | R5 | Organize in alphabetical order. | More intuitive for user to have the soonest trip appear first, rather than having to dig to find it among past and future trips. Gives user the option to sort as desired. |
 | ADR-03 | Separate each day of itinerary in a "card" | R4 | Vertical Timeline | Easier to identify which events/activities/destinations belong to each day of the trip. | 
+| ADR-04 | User email can only be viewed when logged in from "My Account" page | R13 | Do nothing, display in navbar | Allows user to see which account is logged in, without exposing sensitive information in the navbar. |
 
 *Changed your mind later? Don't delete the old row — add a new ADR and write "Replaced by ADR-0X" in the old one.*
 
@@ -48,6 +49,7 @@ A simple web app for users to organize and plan trips. Users log in to view thei
 | 7 | Add activity/destination screen | /mytrips/:id/destination/new | Form to add a destination or activity to a trip itinerary. | R3 | P1 |
 | 8 | Edit Trip Screen | /mytrips/:id/edit | Allows users to edit general details of an existing trip, similar to create trip screen. | R9, R10 | P2 |
 | 9 | Error Screen | - | Alerts users when there are missing required fields, unsaved changes, or other errors. | R2, R6, R10 | P2 |
+| 10 | My Account page | /myaccount | Shows the logged-in user's email address; does not show the email to logged-out users. | R13 | P1 |
 
 **Why this order:** Application build order is organized in the order that a user would interact with the application from start to finish for creating a simple trip itinerary. This allows us to ensure the main functionality of the app is prioritized prior to any additional features. 
 

@@ -7,6 +7,20 @@
 This is the one file your instructor checks each week. Keep each entry short: someone should be able to read it in a minute.
 
 ---
+
+## Week 6 — 11/24/26
+
+- **Done:**
+  - Kristiana: Completed the Week 6 validation build with P1 tasks and gap log. Made appropriate changes to data-api-design, plan, and specification based on gap log. 
+- **Next:** Team to review the gap log as well as changes made to the documents. 
+- **Blockers:** None.
+- **Open questions:** None.
+- **AI use:** Used AI to perform the P1 tasks for the validation build.
+- **Change request:** None.
+- **Instructor response:** **
+
+---
+
 ## Week 5 — 11/16/26
 
 - **Done:**
@@ -20,16 +34,18 @@ This is the one file your instructor checks each week. Keep each entry short: so
 - **Change request:** None.
 - **Instructor response:** *jLyst: Approved*
 
+---
+
 ## Week 3 — 11/12/26
 
 - **Done:**
-    - *Kristiana: Filled out plan, will refine and edit before next week*
-    - *Mi: Filled out data-api-design*
-- **Next:** *Team needs to review and approve both plan and data-api-design*
-- **Blockers:** *Waiting to hear from Architecture Lead. Product Owner and Delivery Lead have taken over Architecture Lead responsibilities for now.*
-- **Open questions:** *None*
-- **AI use:** *Ensuring requirement IDs in spec match appropriately in plan. Ensure the data-api-design aligns with project details.*
-- **Change request:** *None*
+    - Kristiana: Filled out plan, will refine and edit before next week
+    - Mi: Filled out data-api-design
+- **Next:** Team needs to review and approve both plan and data-api-design
+- **Blockers:** Waiting to hear from Architecture Lead. Product Owner and Delivery Lead have taken over Architecture Lead responsibilities for now.
+- **Open questions:** None
+- **AI use:** Ensuring requirement IDs in spec match appropriately in plan. Ensure the data-api-design aligns with project details.
+- **Change request:** None
 - **Instructor response:** *jLyst, Approved*
 
 ---

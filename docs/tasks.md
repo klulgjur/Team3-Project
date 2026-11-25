@@ -22,7 +22,7 @@ This task list follows the Trip Planner specification, build plan, and Data & AP
 | T9 | Add activities to the selected itinerary day | P1 | R4 | T7, T8 | “Empire State Building Tour” added to January 16 appears under January 16 after saving. | Not started |
 | T10 | Load saved trip details when users return | P1 | R5 | T4, T7, T8, T9 | Reopening a trip shows its saved name, dates, destinations, days, and activities. | Not started |
 | T11 | Handle save errors without losing entered information | P1 | R2, R6 | T5, T9 | Save error when "End" date is before "Start" date keeps the entered information on screen and allows the user to try again. | Not started |
-| T12 | Warn users before leaving with unsaved changes | P1 | R10 | T15 | Leaving a page after making changes asks whether to save or discard them. | Not started |
+| T12 | Warn users before leaving with unsaved changes | P1 | R10 | T11 | Leaving a page after making changes asks whether to save or discard them. | Not started |
 | T13 | Conduct first-time user testing | P1 | R7 | T10, T11 | At least four people test the app; at least three of four complete a trip without assistance, and the results are recorded. | Not started |
 | T14 | Verify page loading performance | P1 | R8 | T4, T10 | Browser tests show the My Trips and trip-details pages each load in under 10 seconds. | Not started |
 | T15 | Support edits to trips and activities | P2 | R9 | T10 | Changing a trip's end date from January 21 to January 22 is still saved after reopening the trip. | Not started |
@@ -52,7 +52,7 @@ The table traces each P1 requirement from the Specification to the Data & API De
 ### Cross-check findings requiring team review
 
 1. **Database choice:** The Plan leaves the database blank in ADR-00. The Data & API Design says PostgreSQL through Supabase, but also says the backend is simulated. The team should confirm whether Supabase is only the intended future database or part of the Week 6 implementation.
-2. **Activity date in R4:** The Specification says an activity added to January 16 appears on January 17. The Spec owner should confirm the intended date and update the acceptance test.
+2. **Activity date in R4:** The Specification says an activity added to January 16 appears on January 17. The Spec owner should confirm the intended date and update the acceptance test. **Complete 11/25/26 KL**
 3. **Itinerary layout:** ADR-03 says to use daily cards, while the screen description mentions a vertical timeline. The Plan should use consistent terminology for the selected layout.
 4. **Save errors:** R6 is P1, but the separate Error Screen is listed as P2 in the Plan. Save-failure handling must remain in the P1 build even if a separate error screen is deferred.
 5. **Activity screen:** Screen 7 is for adding destinations *and* activities, but only lists R3. It should also reference R4 if it handles activities.

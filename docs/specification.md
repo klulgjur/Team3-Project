@@ -26,7 +26,7 @@ The Spec is the source of truth for *what* you're building. Write it so a teamma
 
 ## 1. Problem & Evidence
 
-**Problem and success:** *Users with an upcoming trip having the need to plan for multiple days, where documents are spread out on spreadsheets, and notes app, making planning less organized and stressful. Success: By week 8, all of the main features work, and 70% of test users are able to plan a trip to completion on their own. *
+**Problem and success:** *Users with an upcoming trip having the need to plan for multiple days, where documents are spread out on spreadsheets, and notes app, making planning less organized and stressful. Success: By week 8, all of the main features work, and 70% of test users are able to plan a trip to completion on their own within the first month of app launch. *
 
 **Evidence:** *(3–5 short conversations or observations with people like your user, outside your team, plus the Week 3 prototype test. Real quotes or what you saw, not opinions.)*
 
@@ -96,7 +96,7 @@ The Spec is the source of truth for *what* you're building. Write it so a teamma
 | ID | Requirement | Priority | Acceptance test (do → expect) | Evidence |
 |----|-------------|----------|-------------------------------|----------|
 | R1 |When a users create a new trip with the name and dates, the system shall create and saves it |P1 |User enters "NYC 2027" and "January 15-January 21" -> Trip is created and will appear on the home screen | E2 |
-| R2 |If trip details are missing, such as name, dates, destinations, the system shall not save it and will highlight the missing details for users to fill in before saving. |P1 |User puts in "NYC 2027" and "January 15-" with no end date -> Nothing will save and system will highlight the missing end date. |ASSUMPTION |
+| R2 |If required trip details are missing, such as name or dates, the system shall not save it and will highlight the missing details for users to fill in before saving. |P1 |User puts in "NYC 2027" and "January 15-" with no end date -> Nothing will save and system will highlight the missing end date. |ASSUMPTION |
 | R3 |When a user adds the destination with the name, and start and end date, the system shall add it to the trip |P1 |User adds "Manhattan, January 15-17" and Buffalo, January 18-21" -> Both added to trip details |ASSUMPTION |
 | R4 |When users add an activity to a day, the system will add it to that day's itinerary |P1 |Add "Empire State Building Tour" to January 16 -> Appears under January 16 Itinerary |ASSUMPTION |
 | R5 |When user open that app, the system should show the saved trip, with upcoming trip listed first. After opening trip, the system should show the trip details. |P1 |User create trips for January and March -> January trip is listed first, trip detailed is saved and correct after reopening the app | E2 |
@@ -104,7 +104,7 @@ The Spec is the source of truth for *what* you're building. Write it so a teamma
 | R7 |When a first time user is trying to create a trip to completion, the system should let them finish without trying to help  |P1 |Test prototype with 4+ users -> 70% plan a trip to completion without assistance |E3 |
 | R8 |The system should display the home screen and the trip details in under 10 seconds. |P1 |Open app and Trip details -> Home screen loaded in under 10 seconds |ASSUMPTION |
 | R9 |When the user make edits to the trip details, rearrange activities, or add new activities, the system shall save those changes. |P2 | User edits the dates from "January 15-21" to "January 15-22" -> New date is saved and shown when reopening the trip details |E1|
-| R10 |When a user leaves the screen with unsaved edits, the system will prompt user to either save or discard changes. |P2 |Edit the trip activities, click back button -> System show "Save Changes?" with yes or no buttons. |Constitution #2|
+| R10 |When a user leaves the screen with unsaved edits, the system will prompt user to either save or discard changes. |P1 |Edit the trip activities, click back button -> System show "Save Changes?" with yes or no buttons. |Constitution #2|
 | R11 |When user deletes or change an item, the system shall let the user Undo action for at least 10 seconds. |P2 |Delete an activity -> Undo button shown for 10 seconds -> Activity restored |Constitution #2 |
 | R12 | When user enters an unknown email while logging in, alert the user that the email is not recognized and prompt to create a new account or try another email. | P1 | Attempt to login with an unregistered email -> Page alerts account with that email not found, prompts to retry or create a new account -> retry -> successful login OR ->Create Account -> account is saved and user is logged in| ASSUMPTION |
 | R13 | While a user is logged in, the system shall show their email address on the My Account page and shall not show it to logged-out users. | P1 | Log in as traveler@example.com and open My Account -> traveler@example.com is displayed; log out and My Account page is not present. | ASSUMPTION |
